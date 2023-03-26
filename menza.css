@@ -55,3 +55,15 @@
   text-align: center;
   font-family: "TheGoodMonolith", sans-serif;
 }
+
+/* ételkészitős játék */
+#canvas-container {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
+}
+.etelkeszito {
+  display: inline;
+
+}
