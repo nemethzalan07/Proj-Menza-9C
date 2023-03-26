@@ -1,12 +1,52 @@
 .kep {
-border: black 2px solid;
+  border: black 2px solid;
 }
 
 .jobbra {
-float:right ;
+  float: right;
 }
 
+/* játek elosztó */
+
 .jatek-eloszto {
-    background-image: url(forrasok/kepek/eloszto-hatter.png);
-    background-size: 200px;
+  background-image: url(forrasok/kepek/eloszto-hatter.png);
+  background-size: 200px;
+}
+.eloszto:link {
+  text-decoration: none;
+}
+.eloszto:visited {
+  text-decoration: none;
+}
+.eloszto:active {
+  text-decoration: none;
+  opacity: 0.9;
+}
+.eloszto:hover {
+  text-decoration: none;
+}
+.overlay:hover {
+  opacity: 0.5;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: 0.5s ease;
+  background-color: #007d81;
+  opacity: 0;
+}
+.megjeleno-szoveg {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: cursive;
 }
