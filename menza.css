@@ -9,7 +9,7 @@
 /* játek elosztó */
 
 .jatek-eloszto {
-  background-image: url(forrasok/kepek/eloszto-hatter.png);
+  background-image: url("forrasok/kepek/eloszto-hatter.png");
   background-size: 200px;
 }
 .eloszto:link {
@@ -61,9 +61,11 @@
   height: 100%;
   width: 100%;
   text-align: center;
-
+  
 }
 .etelkeszito {
   display: inline;
-
+ 
 }
+.grab {cursor: -webkit-grab; cursor: grab;}
+.grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
