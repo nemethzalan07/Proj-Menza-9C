@@ -2,9 +2,21 @@
   border: black 2px solid;
 }
 
+
+.menza-hasab {
+ background: url(forrasok/kepek/feher-hatter.jpg)
+ ;
+ 
+ height: 100vh;
+padding-left: 20px;
+padding-right: 20px;
+
+}
+
 .jobbra {
   float: right;
 }
+
 
 /* játek elosztó */
 
@@ -55,6 +67,15 @@
   text-align: center;
   font-family: "TheGoodMonolith", sans-serif;
 }
+
+
+.hatter-menza{
+background-image:url(forrasok/kepek/menza-oldal-háttere.png);
+}
+.kep{
+  border: 2px solid black;
+
 .hatter-index{
   background-image: url(forrasok/kepek/index-hattere.jpg);
+
 }
