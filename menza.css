@@ -59,6 +59,12 @@
   background-image: url(forrasok/kepek/index-hattere.jpg);
 }
 .fooldal-eloszto{
-  margin-top: 25em;
+  margin-top: 15em;
+  margin-right: 1em;
+}
+.kártya-szöveg{
+  font-family: "TheGoodMonolith", sans-serif;
+}
+.card-title {
   font-family: "TheGoodMonolith", sans-serif;
 }
