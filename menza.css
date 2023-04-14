@@ -62,24 +62,40 @@
   font-family: "TheGoodMonolith", sans-serif;
 }
 
-.kartya-elh {
-  margin-top: 50px;
+.hatter-index{
+  background-image: url(forrasok/kepek/index-hattere.jpg);
 }
-
-/* ételkészitős játék */
-#canvas-container {
-  height: 100%;
-  width: 100%;
+.fooldal-eloszto{
+  margin-top: 5em;
+  margin-right: 1em;
+  margin-right: 0,5em;
+}
+.kártya-szöveg{
+  font-family: "TheGoodMonolith", sans-serif;
+}
+.card-title {
+  font-family: "TheGoodMonolith", sans-serif;
+}
+.eloszto-kep{
+  height: 380px;
+}
+.bevezető-szöveg{
+  font-family: "TheGoodMonolith", sans-serif;
   text-align: center;
+  color: white;
+  margin-top: 1em;
+  background-color: rgba(0, 0, 0, 0.524);
 }
-.etelkeszito {
-  display: inline;
-}
-.grab {
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-.grabbing {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-}
+.menza-hatter {
+  height: 100vh;
+  background-image: url(https://img.itch.zone/aW1nLzUwMDIzNDMucG5n/original/pzoneM.png);
+  }
+  .nav-elhely {
+  width: 100%;
+  position: absolute;
+  }
+  .menza-hasab {
+  height: 100vh;
+  background-color: white;
+  }
+
