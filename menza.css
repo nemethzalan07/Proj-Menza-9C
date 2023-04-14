@@ -9,8 +9,9 @@
 /* játek elosztó */
 
 .jatek-eloszto {
-  background-image: url(forrasok/kepek/eloszto-hatter.png);
+  background-image: url("forrasok/kepek/eloszto-hatter.png");
   background-size: 200px;
+  margin-top: 20;
 }
 .eloszto:link {
   text-decoration: none;
@@ -36,9 +37,11 @@
   right: 0;
   height: 100%;
   width: 100%;
-  transition: 0.5s ease;
+  transition: ease-in 0.2s;
   background-color: #007d81;
   opacity: 0;
+  border: black solid 2.5px;
+  border-radius: 5px;
 }
 .megjeleno-szoveg {
   color: rgb(255, 255, 255);
@@ -49,12 +52,16 @@
   transform: translate(-50%, -50%);
   text-align: center;
   font-family: cursive;
+  border: black 3px solid;
+  border-radius: 5px;
+  background-color: black;
 }
 
 .jatek-nev {
   text-align: center;
   font-family: "TheGoodMonolith", sans-serif;
 }
+
 .hatter-index{
   background-image: url(forrasok/kepek/index-hattere.jpg);
 }
@@ -91,3 +98,4 @@
   height: 100vh;
   background-color: white;
   }
+
