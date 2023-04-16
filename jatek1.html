@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="etelkeszito.css" />
+    <link rel="stylesheet" href="jatek1.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Menza</title>
-    <script src="etelkeszito.js"></script>
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/thegoodmonolith");
+    </style>
   </head>
   <body>
+    <nav id="navelh" class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Főoldal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menza.html">Menza</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jatek-eloszto.html">Játék</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="quiz.html">Quiz</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="frame">
       <div class="camera">
         <div class="map pixel-art">
@@ -24,281 +44,299 @@
         </div>
       </div>
     </div>
+
+    <button id="kezdes" onclick="kezdes()">Kezdés</button>
     <script>
-      var character = document.querySelector(".character");
-      var map = document.querySelector(".map");
+      function kezdes() {
+        var mapElement = document.querySelector(".map");
+        mapElement.style.visibility = "visible";
+        var mapElement = document.querySelector(".camera");
+        mapElement.style.visibility = "visible";
+        var mapElement = document.querySelector(".frame");
+        mapElement.style.visibility = "visible";
+        var mapElement = document.querySelector(".character");
+        mapElement.style.visibility = "visible";
+        var mapElement = document.querySelector(".shadow");
+        mapElement.style.visibility = "visible";
 
-      var x = 144;
-      var y = 340;
-      var held_directions = [];
-      var speed = 1;
+        var mapElement = document.querySelector("#kezdes");
+        mapElement.style.visibility = "hidden";
 
-      const placeCharacter = () => {
-        var pixelSize = parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--pixel-size"
-          )
-        );
+        var character = document.querySelector(".character");
+        var map = document.querySelector(".map");
 
-        const held_direction = held_directions[0];
-        if (held_direction) {
-          if (held_direction === directions.right) {
-            x += speed;
-          }
-          if (held_direction === directions.left) {
-            x -= speed;
-          }
-          if (held_direction === directions.down) {
-            y += speed;
-          }
-          if (held_direction === directions.up) {
-            y -= speed;
-          }
-          character.setAttribute("facing", held_direction);
-        }
-        character.setAttribute("walking", held_direction ? "true" : "false");
+        var x = 144;
+        var y = 340;
+        var held_directions = [];
+        var speed = 1;
 
-        var leftLimit = 7;
-        var rightLimit = 16 * 17 - 7;
-        var topLimit = 60;
-        var bottomLimit = 16 * 19 - 15;
-        if (x < leftLimit) {
-          x = leftLimit;
-        }
-        if (x > rightLimit) {
-          x = rightLimit;
-        }
-        if (y < topLimit) {
-          y = topLimit;
-        }
-        if (y > bottomLimit) {
-          y = bottomLimit;
-        }
+        const placeCharacter = () => {
+          var pixelSize = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue(
+              "--pixel-size"
+            )
+          );
 
-        var characterWidth = pixelSize * 4;
-        var characterHeight = pixelSize * 4;
+          const held_direction = held_directions[0];
+          if (held_direction) {
+            if (held_direction === directions.right) {
+              x += speed;
+            }
+            if (held_direction === directions.left) {
+              x -= speed;
+            }
+            if (held_direction === directions.down) {
+              y += speed;
+            }
+            if (held_direction === directions.up) {
+              y -= speed;
+            }
+            character.setAttribute("facing", held_direction);
+          }
+          character.setAttribute("walking", held_direction ? "true" : "false");
 
-        var boulderX1 = 198;
-        var boulderY1 = 85;
-        var boulderWidth1 = 10;
-        var boulderHeight1 = 10;
+          var leftLimit = 7;
+          var rightLimit = 16 * 17 - 7;
+          var topLimit = 60;
+          var bottomLimit = 16 * 19 - 15;
+          if (x < leftLimit) {
+            x = leftLimit;
+          }
+          if (x > rightLimit) {
+            x = rightLimit;
+          }
+          if (y < topLimit) {
+            y = topLimit;
+          }
+          if (y > bottomLimit) {
+            y = bottomLimit;
+          }
 
-        if (
-          x < boulderX1 + boulderWidth1 &&
-          x + characterWidth > boulderX1 &&
-          y < boulderY1 + boulderHeight1 &&
-          y + characterHeight > boulderY1
-        ) {
-          // character collided with boulder
-          if (held_direction === directions.right) {
-            x -= speed;
-          }
-          if (held_direction === directions.left) {
-            x += speed;
-          }
-          if (held_direction === directions.down) {
-            y -= speed;
-          }
-          if (held_direction === directions.up) {
-            y += speed;
-          }
-        }
-        var boulderX2 = 97;
-        var boulderY2 = 85;
-        var boulderWidth2 = 10;
-        var boulderHeight2 = 10;
+          var characterWidth = pixelSize * 4;
+          var characterHeight = pixelSize * 4;
 
-        if (
-          x < boulderX2 + boulderWidth2 &&
-          x + characterWidth > boulderX2 &&
-          y < boulderY2 + boulderHeight2 &&
-          y + characterHeight > boulderY2
-        ) {
-          // character collided with boulder
-          if (held_direction === directions.right) {
-            x -= speed;
-          }
-          if (held_direction === directions.left) {
-            x += speed;
-          }
-          if (held_direction === directions.down) {
-            y -= speed;
-          }
-          if (held_direction === directions.up) {
-            y += speed;
-          }
-        }
-        var boulderX3 = 64;
-        var boulderY3 = 223;
-        var boulderWidth3 = 24;
-        var boulderHeight3 = 24;
+          var boulderX1 = 198;
+          var boulderY1 = 85;
+          var boulderWidth1 = 10;
+          var boulderHeight1 = 10;
 
-        if (
-          x < boulderX3 + boulderWidth3 &&
-          x + characterWidth > boulderX3 &&
-          y < boulderY3 + boulderHeight3 &&
-          y + characterHeight > boulderY3
-        ) {
-          // character collided with boulder
-          if (held_direction === directions.right) {
-            x -= speed;
+          if (
+            x < boulderX1 + boulderWidth1 &&
+            x + characterWidth > boulderX1 &&
+            y < boulderY1 + boulderHeight1 &&
+            y + characterHeight > boulderY1
+          ) {
+            // character collided with boulder
+            if (held_direction === directions.right) {
+              x -= speed;
+            }
+            if (held_direction === directions.left) {
+              x += speed;
+            }
+            if (held_direction === directions.down) {
+              y -= speed;
+            }
+            if (held_direction === directions.up) {
+              y += speed;
+            }
           }
-          if (held_direction === directions.left) {
-            x += speed;
-          }
-          if (held_direction === directions.down) {
-            y -= speed;
-          }
-          if (held_direction === directions.up) {
-            y += speed;
-          }
-        }
-        var boulderX4 = 64;
-        var boulderY4 = 156;
-        var boulderWidth4 = 24;
-        var boulderHeight4 = 24;
+          var boulderX2 = 97;
+          var boulderY2 = 85;
+          var boulderWidth2 = 10;
+          var boulderHeight2 = 10;
 
-        if (
-          x < boulderX4 + boulderWidth4 &&
-          x + characterWidth > boulderX4 &&
-          y < boulderY4 + boulderHeight4 &&
-          y + characterHeight > boulderY4
-        ) {
-          // character collided with boulder
-          if (held_direction === directions.right) {
-            x -= speed;
+          if (
+            x < boulderX2 + boulderWidth2 &&
+            x + characterWidth > boulderX2 &&
+            y < boulderY2 + boulderHeight2 &&
+            y + characterHeight > boulderY2
+          ) {
+            // character collided with boulder
+            if (held_direction === directions.right) {
+              x -= speed;
+            }
+            if (held_direction === directions.left) {
+              x += speed;
+            }
+            if (held_direction === directions.down) {
+              y -= speed;
+            }
+            if (held_direction === directions.up) {
+              y += speed;
+            }
           }
-          if (held_direction === directions.left) {
-            x += speed;
-          }
-          if (held_direction === directions.down) {
-            y -= speed;
-          }
-          if (held_direction === directions.up) {
-            y += speed;
-          }
-        }
-        var boulderX5 = 199;
-        var boulderY5 = 156;
-        var boulderWidth5 = 24;
-        var boulderHeight5 = 24;
+          var boulderX3 = 64;
+          var boulderY3 = 223;
+          var boulderWidth3 = 24;
+          var boulderHeight3 = 24;
 
-        if (
-          x < boulderX5 + boulderWidth5 &&
-          x + characterWidth > boulderX5 &&
-          y < boulderY5 + boulderHeight5 &&
-          y + characterHeight > boulderY5
-        ) {
-          // character collided with boulder
-          if (held_direction === directions.right) {
-            x -= speed;
+          if (
+            x < boulderX3 + boulderWidth3 &&
+            x + characterWidth > boulderX3 &&
+            y < boulderY3 + boulderHeight3 &&
+            y + characterHeight > boulderY3
+          ) {
+            // character collided with boulder
+            if (held_direction === directions.right) {
+              x -= speed;
+            }
+            if (held_direction === directions.left) {
+              x += speed;
+            }
+            if (held_direction === directions.down) {
+              y -= speed;
+            }
+            if (held_direction === directions.up) {
+              y += speed;
+            }
           }
-          if (held_direction === directions.left) {
-            x += speed;
-          }
-          if (held_direction === directions.down) {
-            y -= speed;
-          }
-          if (held_direction === directions.up) {
-            y += speed;
-          }
-        }
-        var boulderX6 = 199;
-        var boulderY6 = 223;
-        var boulderWidth6 = 24;
-        var boulderHeight6 = 24;
+          var boulderX4 = 64;
+          var boulderY4 = 156;
+          var boulderWidth4 = 24;
+          var boulderHeight4 = 24;
 
-        if (
-          x < boulderX6 + boulderWidth6 &&
-          x + characterWidth > boulderX6 &&
-          y < boulderY6 + boulderHeight6 &&
-          y + characterHeight > boulderY6
-        ) {
-          // character collided with boulder
-          if (held_direction === directions.right) {
-            x -= speed;
+          if (
+            x < boulderX4 + boulderWidth4 &&
+            x + characterWidth > boulderX4 &&
+            y < boulderY4 + boulderHeight4 &&
+            y + characterHeight > boulderY4
+          ) {
+            // character collided with boulder
+            if (held_direction === directions.right) {
+              x -= speed;
+            }
+            if (held_direction === directions.left) {
+              x += speed;
+            }
+            if (held_direction === directions.down) {
+              y -= speed;
+            }
+            if (held_direction === directions.up) {
+              y += speed;
+            }
           }
-          if (held_direction === directions.left) {
-            x += speed;
-          }
-          if (held_direction === directions.down) {
-            y -= speed;
-          }
-          if (held_direction === directions.up) {
-            y += speed;
-          }
-        }
-        var boulderX1 = 198;
-        var boulderY1 = 85;
-        var boulderWidth1 = 10;
-        var boulderHeight1 = 10;
+          var boulderX5 = 199;
+          var boulderY5 = 156;
+          var boulderWidth5 = 24;
+          var boulderHeight5 = 24;
 
-        if (
-          x < boulderX1 + boulderWidth1 &&
-          x + characterWidth > boulderX1 &&
-          y < boulderY1 + boulderHeight1 &&
-          y + characterHeight > boulderY1
-        ) {
-          // character collided with boulder
-          if (held_direction === directions.right) {
-            x -= speed;
+          if (
+            x < boulderX5 + boulderWidth5 &&
+            x + characterWidth > boulderX5 &&
+            y < boulderY5 + boulderHeight5 &&
+            y + characterHeight > boulderY5
+          ) {
+            // character collided with boulder
+            if (held_direction === directions.right) {
+              x -= speed;
+            }
+            if (held_direction === directions.left) {
+              x += speed;
+            }
+            if (held_direction === directions.down) {
+              y -= speed;
+            }
+            if (held_direction === directions.up) {
+              y += speed;
+            }
           }
-          if (held_direction === directions.left) {
-            x += speed;
-          }
-          if (held_direction === directions.down) {
-            y -= speed;
-          }
-          if (held_direction === directions.up) {
-            y += speed;
-          }
-        }
+          var boulderX6 = 199;
+          var boulderY6 = 223;
+          var boulderWidth6 = 24;
+          var boulderHeight6 = 24;
 
-        var camera_left = pixelSize * 66;
-        var camera_top = pixelSize * 42;
+          if (
+            x < boulderX6 + boulderWidth6 &&
+            x + characterWidth > boulderX6 &&
+            y < boulderY6 + boulderHeight6 &&
+            y + characterHeight > boulderY6
+          ) {
+            // character collided with boulder
+            if (held_direction === directions.right) {
+              x -= speed;
+            }
+            if (held_direction === directions.left) {
+              x += speed;
+            }
+            if (held_direction === directions.down) {
+              y -= speed;
+            }
+            if (held_direction === directions.up) {
+              y += speed;
+            }
+          }
+          var boulderX1 = 198;
+          var boulderY1 = 85;
+          var boulderWidth1 = 10;
+          var boulderHeight1 = 10;
 
-        map.style.transform = `translate3d( ${
-          -x * pixelSize + camera_left
-        }px, ${-y * pixelSize + camera_top}px, 0 )`;
-        character.style.transform = `translate3d( ${x * pixelSize}px, ${
-          y * pixelSize
-        }px, 0 )`;
-      };
+          if (
+            x < boulderX1 + boulderWidth1 &&
+            x + characterWidth > boulderX1 &&
+            y < boulderY1 + boulderHeight1 &&
+            y + characterHeight > boulderY1
+          ) {
+            // character collided with boulder
+            if (held_direction === directions.right) {
+              x -= speed;
+            }
+            if (held_direction === directions.left) {
+              x += speed;
+            }
+            if (held_direction === directions.down) {
+              y -= speed;
+            }
+            if (held_direction === directions.up) {
+              y += speed;
+            }
+          }
 
-      const step = () => {
-        placeCharacter();
-        window.requestAnimationFrame(() => {
-          step();
+          var camera_left = pixelSize * 66;
+          var camera_top = pixelSize * 42;
+
+          map.style.transform = `translate3d( ${
+            -x * pixelSize + camera_left
+          }px, ${-y * pixelSize + camera_top}px, 0 )`;
+          character.style.transform = `translate3d( ${x * pixelSize}px, ${
+            y * pixelSize
+          }px, 0 )`;
+        };
+
+        const step = () => {
+          placeCharacter();
+          window.requestAnimationFrame(() => {
+            step();
+          });
+        };
+        step();
+
+        const directions = {
+          up: "up",
+          down: "down",
+          left: "left",
+          right: "right",
+        };
+        const keys = {
+          38: directions.up,
+          37: directions.left,
+          39: directions.right,
+          40: directions.down,
+        };
+        document.addEventListener("keydown", (e) => {
+          var dir = keys[e.which];
+          if (dir && held_directions.indexOf(dir) === -1) {
+            held_directions.unshift(dir);
+          }
         });
-      };
-      step();
 
-      const directions = {
-        up: "up",
-        down: "down",
-        left: "left",
-        right: "right",
-      };
-      const keys = {
-        38: directions.up,
-        37: directions.left,
-        39: directions.right,
-        40: directions.down,
-      };
-      document.addEventListener("keydown", (e) => {
-        var dir = keys[e.which];
-        if (dir && held_directions.indexOf(dir) === -1) {
-          held_directions.unshift(dir);
-        }
-      });
-
-      document.addEventListener("keyup", (e) => {
-        var dir = keys[e.which];
-        var index = held_directions.indexOf(dir);
-        if (index > -1) {
-          held_directions.splice(index, 1);
-        }
-      });
+        document.addEventListener("keyup", (e) => {
+          var dir = keys[e.which];
+          var index = held_directions.indexOf(dir);
+          if (index > -1) {
+            held_directions.splice(index, 1);
+          }
+        });
+      }
     </script>
   </body>
 </html>
