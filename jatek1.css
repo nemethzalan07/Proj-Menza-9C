@@ -13,11 +13,6 @@
     --pixel-size: 4px;
   }
 }
-/* @media( min-width: 1000px ) {
-    :root {
-       --pixel-size: 5px;
-    }
- } */
 
 html,
 body {
@@ -29,7 +24,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .pixel-art {
@@ -136,9 +130,63 @@ body {
   margin: 0 auto;
 }
 #navelh {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+}
+.utasitas {
+  bottom: 0;
+  font-size: 40px;
+  position: absolute;
+  z-index: 4;
+  background-color: #fff;
+  font-family: "TheGoodMonolith", sans-serif;
+}
+#beszed1 {
+  top: 10%;
+  position: absolute;
+  visibility: hidden;
+  z-index: 3;
+  font-family: "TheGoodMonolith", sans-serif;
+  background-color: #ffffff;
+  border: #000000 solid 2px;
+  font-size: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#beszed2 {
+  top: 10%;
+  position: absolute;
+  visibility: hidden;
+  z-index: 3;
+  font-family: "TheGoodMonolith", sans-serif;
+  background-color: #ffffff;
+  border: #000000 solid 2px;
+  font-size: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#beszed3 {
+  top: 10%;
+  position: absolute;
+  visibility: hidden;
+  z-index: 3;
+  font-family: "TheGoodMonolith", sans-serif;
+  background-color: #ffffff;
+  border: #000000 solid 2px;
+  font-size: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#beszed4 {
+  top: 40%;
+  position: absolute;
+  visibility: hidden;
+  z-index: 3;
+  font-family: "TheGoodMonolith", sans-serif;
+  background-color: #ffffff;
+  font-size: 100px;
+  transition: ease-in;
 }

@@ -43,6 +43,18 @@
     </div>
 
     <button id="kezdes" onclick="kezdes()">Kezdés</button>
+
+    <div id="kezdes2" class="utasitas">A nyilak mozgatásával tudsz haladni</div>
+    <div id="beszed1">
+      A játékban három fontos feladatod van: <br />
+      Elvedd a tálcádat, ülj le egy asztalnál és fogyaszd ez az ételedet.
+    </div>
+    <div id="beszed2">
+      Elvetted a tálcádat. <br />
+      Most ülj le a lehető legtávolabb!
+    </div>
+    <div id="beszed3">Remélem jól laktál!</div>
+    <div id="beszed4">Köszönöm a játékot!</div>
     <script>
       function kezdes() {
         var mapElement = document.querySelector(".map");
@@ -58,6 +70,11 @@
 
         var mapElement = document.querySelector("#kezdes");
         mapElement.style.visibility = "hidden";
+        var mapElement = document.querySelector("#kezdes2");
+        mapElement.style.visibility = "hidden";
+
+        var mapElement = document.querySelector("#beszed1");
+        mapElement.style.visibility = "visible";
 
         var character = document.querySelector(".character");
         var map = document.querySelector(".map");
@@ -76,6 +93,8 @@
 
           const held_direction = held_directions[0];
           if (held_direction) {
+            var mapElement = document.querySelector("#beszed1");
+            mapElement.style.visibility = "hidden";
             if (held_direction === directions.right) {
               x += speed;
             }
@@ -123,7 +142,6 @@
             y < boulderY1 + boulderHeight1 &&
             y + characterHeight > boulderY1
           ) {
-            // character collided with boulder
             if (held_direction === directions.right) {
               x -= speed;
             }
@@ -148,7 +166,6 @@
             y < boulderY2 + boulderHeight2 &&
             y + characterHeight > boulderY2
           ) {
-            // character collided with boulder
             if (held_direction === directions.right) {
               x -= speed;
             }
@@ -173,7 +190,6 @@
             y < boulderY3 + boulderHeight3 &&
             y + characterHeight > boulderY3
           ) {
-            // character collided with boulder
             if (held_direction === directions.right) {
               x -= speed;
             }
@@ -198,7 +214,6 @@
             y < boulderY4 + boulderHeight4 &&
             y + characterHeight > boulderY4
           ) {
-            // character collided with boulder
             if (held_direction === directions.right) {
               x -= speed;
             }
@@ -223,7 +238,6 @@
             y < boulderY5 + boulderHeight5 &&
             y + characterHeight > boulderY5
           ) {
-            // character collided with boulder
             if (held_direction === directions.right) {
               x -= speed;
             }
@@ -248,7 +262,6 @@
             y < boulderY6 + boulderHeight6 &&
             y + characterHeight > boulderY6
           ) {
-            // character collided with boulder
             if (held_direction === directions.right) {
               x -= speed;
             }
@@ -262,29 +275,62 @@
               y += speed;
             }
           }
-          var boulderX1 = 198;
-          var boulderY1 = 85;
-          var boulderWidth1 = 10;
-          var boulderHeight1 = 10;
+
+          //  szoveg
+
+          var boulderX7 = 270;
+          var boulderY7 = 120;
+          var boulderWidth7 = 10;
+          var boulderHeight7 = 100;
 
           if (
-            x < boulderX1 + boulderWidth1 &&
-            x + characterWidth > boulderX1 &&
-            y < boulderY1 + boulderHeight1 &&
-            y + characterHeight > boulderY1
+            x < boulderX7 + boulderWidth7 &&
+            x + characterWidth > boulderX7 &&
+            y < boulderY7 + boulderHeight7 &&
+            y + characterHeight > boulderY7
           ) {
-            // character collided with boulder
             if (held_direction === directions.right) {
-              x -= speed;
+              var mapElement = document.querySelector("#beszed2");
+              mapElement.style.visibility = "visible";
             }
-            if (held_direction === directions.left) {
-              x += speed;
-            }
-            if (held_direction === directions.down) {
-              y -= speed;
-            }
-            if (held_direction === directions.up) {
-              y += speed;
+          }
+
+          var boulderX6 = 60;
+          var boulderY6 = 156;
+          var boulderWidth6 = 1;
+          var boulderHeight6 = 24;
+
+          if (
+            x < boulderX6 + boulderWidth6 &&
+            x + characterWidth > boulderX6 &&
+            y < boulderY6 + boulderHeight6 &&
+            y + characterHeight > boulderY6
+          ) {
+            if (held_direction === directions.right) {
+              var mapElement = document.querySelector("#beszed2");
+              mapElement.style.visibility = "hidden";
+              var mapElement = document.querySelector("#beszed3");
+              mapElement.style.visibility = "visible";
+              setTimeout(function () {
+                var mapElement = document.querySelector(".map");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".camera");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".frame");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".character");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".shadow");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector("#beszed3");
+              mapElement.style.border = "none";
+              }, 2000);
+              setTimeout(function () {
+                var mapElement = document.querySelector("#beszed3");
+              mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector("#beszed4");
+              mapElement.style.visibility = "visible";
+              }, 4000);
             }
           }
 
