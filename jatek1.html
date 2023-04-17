@@ -278,7 +278,7 @@
 
           //  szoveg
 
-          var boulderX7 = 270;
+          var boulderX7 = 280;
           var boulderY7 = 120;
           var boulderWidth7 = 10;
           var boulderHeight7 = 100;
@@ -295,18 +295,57 @@
             }
           }
 
-          var boulderX6 = 60;
-          var boulderY6 = 156;
-          var boulderWidth6 = 1;
-          var boulderHeight6 = 24;
+          var boulderX8 = 63;
+          var boulderY8 = 156;
+          var boulderWidth8 = 1;
+          var boulderHeight8 = 24;
 
           if (
-            x < boulderX6 + boulderWidth6 &&
-            x + characterWidth > boulderX6 &&
-            y < boulderY6 + boulderHeight6 &&
-            y + characterHeight > boulderY6
+            x < boulderX8 + boulderWidth8 &&
+            x + characterWidth > boulderX8 &&
+            y < boulderY8 + boulderHeight8 &&
+            y + characterHeight > boulderY8
           ) {
             if (held_direction === directions.right) {
+              var mapElement = document.querySelector("#beszed2");
+              mapElement.style.visibility = "hidden";
+              var mapElement = document.querySelector("#beszed3");
+              mapElement.style.visibility = "visible";
+              setTimeout(function () {
+                var mapElement = document.querySelector(".map");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".camera");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".frame");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".character");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector(".shadow");
+                mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector("#beszed3");
+              mapElement.style.border = "none";
+              }, 2000);
+              setTimeout(function () {
+                var mapElement = document.querySelector("#beszed3");
+              mapElement.style.visibility = "hidden";
+                var mapElement = document.querySelector("#beszed4");
+              mapElement.style.visibility = "visible";
+              }, 4000);
+            }
+          }
+
+          var boulderX9 = 62;
+          var boulderY9 = 51;
+          var boulderWidth9 = 10;
+          var boulderHeight9 = 10;
+
+          if (
+            x < boulderX9 + boulderWidth9 &&
+            x + characterWidth > boulderX9 &&
+            y < boulderY9 + boulderHeight9 &&
+            y + characterHeight > boulderY9
+          ) {
+          if (held_direction === directions.up) {
               var mapElement = document.querySelector("#beszed2");
               mapElement.style.visibility = "hidden";
               var mapElement = document.querySelector("#beszed3");
