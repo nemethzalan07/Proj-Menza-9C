@@ -41,7 +41,7 @@ const quizArray = [
   {
     id: "4",
     question: "Hol jobb a kaja?",
-    options: ["Otthon","Menzán","LDisznóvágáson","Étteremben"],
+    options: ["Otthon","Menzán","Disznóvágáson","Étteremben"],
     correct: "Étteremben",
   },
 ];
